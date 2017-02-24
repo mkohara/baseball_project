@@ -19,7 +19,7 @@
       <tr>
         <td><%= player.statistics %></td>
         <td><%= player.scout_id %></td>
-        <td><%= player.team_id %></td>
+        <td><%= player.team.created_at %></td>
         <td>
           <a href="/players/<%= player.id %>" class="btn btn-primary">Show</a>
           <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit</a>
