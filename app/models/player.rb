@@ -21,6 +21,10 @@ class Player < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :rankings_by_scout,
+             :through => :rankings,
+             :source => :scout
+
   has_many   :favorited_by,
              :through => :favorites,
              :source => :user
