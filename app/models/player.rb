@@ -1,6 +1,9 @@
 class Player < ApplicationRecord
   # Direct associations
 
+  has_many   :videos,
+             :dependent => :nullify
+
   has_many   :assigned_players,
              :dependent => :destroy
 
