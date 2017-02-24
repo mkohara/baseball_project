@@ -1,6 +1,10 @@
 class Scout < ApplicationRecord
   # Direct associations
 
+  has_many   :favorites,
+             :foreign_key => "user_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
