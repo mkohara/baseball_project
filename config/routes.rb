@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "players#index"
   # Routes for the Schedule resource:
   # CREATE
   get "/schedules/new", :controller => "schedules", :action => "new"
