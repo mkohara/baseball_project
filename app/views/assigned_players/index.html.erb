@@ -16,7 +16,7 @@
 
       <% @assigned_players.each do |assigned_player| %>
       <tr>
-        <td><%= assigned_player.user_id %></td>
+        <td><%= assigned_player.user.email %></td>
         <td><%= assigned_player.player_id %></td>
         <td>
           <a href="/assigned_players/<%= assigned_player.id %>" class="btn btn-primary">Show</a>
