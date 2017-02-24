@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :scouts
+  # Routes for the Scout resource:
+  # READ
+  get "/scouts", :controller => "scouts", :action => "index"
+  get "/scouts/:id", :controller => "scouts", :action => "show"
+
+
   # Routes for the Player resource:
   # CREATE
   get "/players/new", :controller => "players", :action => "new"
