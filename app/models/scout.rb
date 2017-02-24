@@ -1,6 +1,9 @@
 class Scout < ApplicationRecord
   # Direct associations
 
+  has_many   :rankings,
+             :dependent => :destroy
+
   has_many   :assigned_players,
              :foreign_key => "user_id",
              :dependent => :destroy
