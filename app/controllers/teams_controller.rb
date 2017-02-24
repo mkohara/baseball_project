@@ -1,6 +1,11 @@
 class TeamsController < ApplicationController
   def index
     @teams = Team.all
+    @location_hash = Gmaps4rails.build_markers(@teams.where.not(:location_latitude => nil)) do |team, marker|
+      marker.lat team.location_latitude
+      marker.lng team.location_longitude
+      marker.infowindow "<h5><a href='/teams/#{team.id}'>#{team.created_at}</a></h5><small>#{team.location_formatted_address}</small>"
+    end
 
     render("teams/index.html.erb")
   end
