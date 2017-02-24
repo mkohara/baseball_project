@@ -1,6 +1,6 @@
 class ScoutsController < ApplicationController
   def index
-    @scouts = Scout.all
+    @scouts = Scout.page(params[:page]).per(10)
   end
 
   def show

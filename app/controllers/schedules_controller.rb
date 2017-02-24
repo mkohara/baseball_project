@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.page(params[:page]).per(10)
 
     render("schedules/index.html.erb")
   end

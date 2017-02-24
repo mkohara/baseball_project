@@ -10,7 +10,7 @@ class AssignedPlayersController < ApplicationController
   end
 
   def index
-    @assigned_players = AssignedPlayer.all
+    @assigned_players = AssignedPlayer.page(params[:page]).per(10)
 
     render("assigned_players/index.html.erb")
   end
