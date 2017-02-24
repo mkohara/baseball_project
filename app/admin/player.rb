@@ -1,5 +1,7 @@
 ActiveAdmin.register Player do
 
+ permit_params :statistics, :scout_id, :team_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
