@@ -1,6 +1,9 @@
 class Player < ApplicationRecord
   # Direct associations
 
+  belongs_to :team,
+             :counter_cache => true
+
   has_many   :rankings,
              :dependent => :destroy
 
