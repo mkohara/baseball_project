@@ -1,4 +1,14 @@
 class RankingsController < ApplicationController
+  before_action :current_user_must_be_ranking_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_ranking_scout
+    ranking = Ranking.find(params[:id])
+
+    unless current_user == ranking.scout
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @rankings = Ranking.all
 

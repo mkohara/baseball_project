@@ -20,8 +20,11 @@
         <td><%= ranking.scout.email %></td>
         <td>
           <a href="/rankings/<%= ranking.id %>" class="btn btn-primary">Show</a>
-          <a href="/rankings/<%= ranking.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_ranking/<%= ranking.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == ranking.scout %>
+            <a href="/rankings/<%= ranking.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_ranking/<%= ranking.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
