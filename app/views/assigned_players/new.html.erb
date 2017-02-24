@@ -24,7 +24,7 @@
           User
         </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @assigned_player.user_id %>">
+        <%= select_tag(:user_id, options_from_collection_for_select(Scout.all, :id, :email, @assigned_player.user_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for player_id -->
