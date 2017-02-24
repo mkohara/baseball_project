@@ -57,6 +57,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_favorite" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Favorite
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -88,6 +105,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_assigned_player" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Assigned Player
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -119,6 +153,20 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_video" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Video
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -150,6 +198,20 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_note" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Note
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -181,6 +243,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_ranking" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <!-- Label and input for scout_id -->
+      <input type="hidden" name="scout_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Ranking
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

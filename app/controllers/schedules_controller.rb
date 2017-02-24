@@ -6,6 +6,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
+    @team = Team.new
     @schedule = Schedule.find(params[:id])
 
     render("schedules/show.html.erb")

@@ -6,6 +6,11 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @ranking = Ranking.new
+    @note = Note.new
+    @video = Video.new
+    @assigned_player = AssignedPlayer.new
+    @favorite = Favorite.new
     @player = Player.find(params[:id])
 
     render("players/show.html.erb")

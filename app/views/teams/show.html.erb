@@ -60,6 +60,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_player" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for statistics -->
+      <div class="form-group">
+        <label for="statistics" class="control-label">
+          Statistics
+        </label>
+
+        <input type="text" id="statistics" name="statistics" placeholder="Statistics" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for scout_id -->
+      <div class="form-group">
+        <label for="scout_id" class="control-label">
+          Scout
+        </label>
+
+        <input type="text" id="scout_id" name="scout_id" placeholder="Scout" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for team_id -->
+      <input type="hidden" name="team_id" value="<%= @team.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Player
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
