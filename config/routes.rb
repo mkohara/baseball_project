@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Assigned_player resource:
+  # CREATE
+  get "/assigned_players/new", :controller => "assigned_players", :action => "new"
+  post "/create_assigned_player", :controller => "assigned_players", :action => "create"
+
+  # READ
+  get "/assigned_players", :controller => "assigned_players", :action => "index"
+  get "/assigned_players/:id", :controller => "assigned_players", :action => "show"
+
+  # UPDATE
+  get "/assigned_players/:id/edit", :controller => "assigned_players", :action => "edit"
+  post "/update_assigned_player/:id", :controller => "assigned_players", :action => "update"
+
+  # DELETE
+  get "/delete_assigned_player/:id", :controller => "assigned_players", :action => "destroy"
+  #------------------------------
+
   # Routes for the Favorite resource:
   # CREATE
   get "/favorites/new", :controller => "favorites", :action => "new"

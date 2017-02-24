@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Assigned Player #<%= @assigned_player.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @assigned_player.user_id %></dd>
+
+      <dt>Player</dt>
+      <dd><%= @assigned_player.player_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/assigned_players" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/assigned_players/<%= @assigned_player.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_assigned_player/<%= @assigned_player.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
