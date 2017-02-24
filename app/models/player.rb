@@ -21,6 +21,10 @@ class Player < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :assigned_scouts,
+             :through => :assigned_players,
+             :source => :user
+
   # Validations
 
 end

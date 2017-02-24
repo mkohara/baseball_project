@@ -14,6 +14,10 @@ class Scout < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :players,
+             :through => :assigned_players,
+             :source => :player
+
   # Validations
 
   # Include default devise modules. Others available are:
