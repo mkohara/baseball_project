@@ -20,8 +20,11 @@
         <td><%= assigned_player.player.statistics %></td>
         <td>
           <a href="/assigned_players/<%= assigned_player.id %>" class="btn btn-primary">Show</a>
-          <a href="/assigned_players/<%= assigned_player.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_assigned_player/<%= assigned_player.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == assigned_player.user %>
+            <a href="/assigned_players/<%= assigned_player.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_assigned_player/<%= assigned_player.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
