@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Location</dt>
-      <dd><%= @schedule.location_id %></dd>
+      <dd>
+        <% if @schedule.location.present? %>
+          <a href="/locations/<%= @schedule.location_id %>">
+            <%= @schedule.location.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

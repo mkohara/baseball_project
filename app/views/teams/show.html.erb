@@ -19,7 +19,13 @@
       <dd><%= @team.schedule %></dd>
 
       <dt>Schedule</dt>
-      <dd><%= @team.schedule_id %></dd>
+      <dd>
+        <% if @team.schedule.present? %>
+          <a href="/schedules/<%= @team.schedule_id %>">
+            <%= @team.schedule.location_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

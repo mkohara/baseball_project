@@ -12,7 +12,13 @@
       <dd><%= @player.scout_id %></dd>
 
       <dt>Team</dt>
-      <dd><%= @player.team_id %></dd>
+      <dd>
+        <% if @player.team.present? %>
+          <a href="/teams/<%= @player.team_id %>">
+            <%= @player.team.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -15,7 +15,13 @@
 
       <% @videos.each do |video| %>
       <tr>
-        <td><%= video.player.statistics %></td>
+        <td>
+          <% if video.player.present? %>
+            <a href="/players/<%= video.player.id %>">
+              <%= video.player.statistics %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/videos/<%= video.id %>" class="btn btn-primary">Show</a>
           <a href="/videos/<%= video.id %>/edit" class="btn btn-warning">Edit</a>

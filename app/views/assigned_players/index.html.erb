@@ -16,8 +16,20 @@
 
       <% @assigned_players.each do |assigned_player| %>
       <tr>
-        <td><%= assigned_player.user.email %></td>
-        <td><%= assigned_player.player.statistics %></td>
+        <td>
+          <% if assigned_player.user.present? %>
+            <a href="/scouts/<%= assigned_player.user.id %>">
+              <%= assigned_player.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if assigned_player.player.present? %>
+            <a href="/players/<%= assigned_player.player.id %>">
+              <%= assigned_player.player.statistics %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/assigned_players/<%= assigned_player.id %>" class="btn btn-primary">Show</a>
           
