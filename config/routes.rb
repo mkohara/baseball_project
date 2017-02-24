@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Ranking resource:
+  # CREATE
+  get "/rankings/new", :controller => "rankings", :action => "new"
+  post "/create_ranking", :controller => "rankings", :action => "create"
+
+  # READ
+  get "/rankings", :controller => "rankings", :action => "index"
+  get "/rankings/:id", :controller => "rankings", :action => "show"
+
+  # UPDATE
+  get "/rankings/:id/edit", :controller => "rankings", :action => "edit"
+  post "/update_ranking/:id", :controller => "rankings", :action => "update"
+
+  # DELETE
+  get "/delete_ranking/:id", :controller => "rankings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Note resource:
   # CREATE
   get "/notes/new", :controller => "notes", :action => "new"
