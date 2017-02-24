@@ -24,7 +24,7 @@
           Player
         </label>
 
-        <input type="text" id="player_id" name="player_id" placeholder="Player" class="form-control" value="<%= @note.player_id %>">
+        <%= select_tag(:player_id, options_from_collection_for_select(Player.all, :id, :statistics, @note.player_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
