@@ -16,7 +16,7 @@
 
       <% @rankings.each do |ranking| %>
       <tr>
-        <td><%= ranking.player_id %></td>
+        <td><%= ranking.player.statistics %></td>
         <td><%= ranking.scout_id %></td>
         <td>
           <a href="/rankings/<%= ranking.id %>" class="btn btn-primary">Show</a>
