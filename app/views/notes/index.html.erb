@@ -15,7 +15,7 @@
 
       <% @notes.each do |note| %>
       <tr>
-        <td><%= note.player_id %></td>
+        <td><%= note.player.statistics %></td>
         <td>
           <a href="/notes/<%= note.id %>" class="btn btn-primary">Show</a>
           <a href="/notes/<%= note.id %>/edit" class="btn btn-warning">Edit</a>
