@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.page(params[:page]).per(10)
+    @q = Note.ransack(params[:q])
+    @notes = @q.result(:distinct => true).includes(:player).page(params[:page]).per(10)
 
     render("notes/index.html.erb")
   end

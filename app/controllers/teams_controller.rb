@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.page(params[:page]).per(10)
+    @q = Team.ransack(params[:q])
+    @teams = @q.result(:distinct => true).includes(:players, :schedule).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@teams.where.not(:location_latitude => nil)) do |team, marker|
       marker.lat team.location_latitude
       marker.lng team.location_longitude
