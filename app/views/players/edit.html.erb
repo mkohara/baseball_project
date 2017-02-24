@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @player.errors.any? %>
+  <% @player.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Player #<%= @player.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_player/<%= @player.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for statistics -->
+      <div class="form-group">
+        <label for="statistics" class="control-label">
+          Statistics
+        </label>
+
+        <input type="text" id="statistics" name="statistics" placeholder="Statistics" class="form-control" value="<%= @player.statistics %>">
+      </div>
+
+      <!-- Label and input for scout_id -->
+      <div class="form-group">
+        <label for="scout_id" class="control-label">
+          Scout
+        </label>
+
+        <input type="text" id="scout_id" name="scout_id" placeholder="Scout" class="form-control" value="<%= @player.scout_id %>">
+      </div>
+
+      <!-- Label and input for team_id -->
+      <div class="form-group">
+        <label for="team_id" class="control-label">
+          Team
+        </label>
+
+        <input type="text" id="team_id" name="team_id" placeholder="Team" class="form-control" value="<%= @player.team_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Player
+      </button>
+      or
+      <a href="/players/<%= @player.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
