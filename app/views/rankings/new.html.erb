@@ -28,13 +28,7 @@
       </div>
 
       <!-- Label and input for scout_id -->
-      <div class="form-group">
-        <label for="scout_id" class="control-label">
-          Scout
-        </label>
-
-        <%= select_tag(:scout_id, options_from_collection_for_select(Scout.all, :id, :email, @ranking.scout_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="scout_id" value="<%= current_user.id %>">
 
       <button class="btn btn-success">
         Create Ranking

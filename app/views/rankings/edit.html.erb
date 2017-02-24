@@ -27,14 +27,8 @@
         <%= select_tag(:player_id, options_from_collection_for_select(Player.all, :id, :statistics, @ranking.player_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for scout_id -->
-      <div class="form-group">
-        <label for="scout_id" class="control-label">
-          Scout
-        </label>
-
-        <%= select_tag(:scout_id, options_from_collection_for_select(Scout.all, :id, :email, @ranking.scout_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <button class="btn btn-warning">
         Update Ranking
