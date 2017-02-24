@@ -14,6 +14,10 @@ class Scout < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :favorite_players,
+             :through => :favorites,
+             :source => :player
+
   has_many   :players,
              :through => :assigned_players,
              :source => :player
