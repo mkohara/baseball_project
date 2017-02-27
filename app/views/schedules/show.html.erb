@@ -14,6 +14,27 @@
         <% end %>
       </dd>
 
+      <dt>Event date</dt>
+      <dd><%= @schedule.event_date %></dd>
+
+      <dt>Home team</dt>
+      <dd>
+        <% if @schedule.home_team.present? %>
+          <a href="/teams/<%= @schedule.home_team_id %>">
+            <%= @schedule.home_team.created_at %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Away team</dt>
+      <dd>
+        <% if @schedule.away_team.present? %>
+          <a href="/teams/<%= @schedule.away_team_id %>">
+            <%= @schedule.away_team.created_at %>
+          </a>
+        <% end %>
+      </dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -27,77 +48,5 @@
         Delete
       </a>
     </div>
-  </div>
-</div>
-
-<!-- A Schedule has many teams -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Teams
-      </li>
-
-      <% @schedule.teams.each do |team| %>
-        <li class="list-group-item">
-          <a href="/teams/<%= team.id %>">
-            <%= team.created_at %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/teams/<%= team.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/teams/<%= team.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_team/<%= team.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_team" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for location -->
-      <div class="form-group">
-        <label for="location" class="control-label">
-          Location
-        </label>
-
-        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
-      </div>
-
-      <!-- Label and input for divisionleague -->
-      <div class="form-group">
-        <label for="divisionleague" class="control-label">
-          Divisionleague
-        </label>
-
-        <textarea id="divisionleague" name="divisionleague" placeholder="Divisionleague" class="form-control" rows="3"></textarea>
-      </div>
-
-      <!-- Label and input for schedule -->
-      <div class="form-group">
-        <label for="schedule" class="control-label">
-          Schedule
-        </label>
-
-        <input type="text" id="schedule" name="schedule" placeholder="Schedule" class="form-control" value="">
-      </div>
-
-      <!-- Label and input for schedule_id -->
-      <input type="hidden" name="schedule_id" value="<%= @schedule.id %>">
-
-      <button class="btn btn-block btn-success">
-        Create Team
-      </button>
-    </form>
-      </li>
-    </ul>
   </div>
 </div>

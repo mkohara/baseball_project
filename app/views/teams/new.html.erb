@@ -18,13 +18,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for location -->
+      <!-- Label and input for location_id -->
       <div class="form-group">
-        <label for="location" class="control-label">
+        <label for="location_id" class="control-label">
           Location
         </label>
 
-        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @team.location %>">
+        <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :created_at, @team.location_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for divisionleague -->
@@ -43,15 +43,6 @@
         </label>
 
         <input type="text" id="schedule" name="schedule" placeholder="Schedule" class="form-control" value="<%= @team.schedule %>">
-      </div>
-
-      <!-- Label and input for schedule_id -->
-      <div class="form-group">
-        <label for="schedule_id" class="control-label">
-          Schedule
-        </label>
-
-        <%= select_tag(:schedule_id, options_from_collection_for_select(Schedule.all, :id, :location_id, @team.schedule_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

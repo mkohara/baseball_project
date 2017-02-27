@@ -1,17 +1,13 @@
 class TeamsController < ApplicationController
   def index
     @q = Team.ransack(params[:q])
-    @teams = @q.result(:distinct => true).includes(:players, :schedule).page(params[:page]).per(10)
-    @location_hash = Gmaps4rails.build_markers(@teams.where.not(:location_latitude => nil)) do |team, marker|
-      marker.lat team.location_latitude
-      marker.lng team.location_longitude
-      marker.infowindow "<h5><a href='/teams/#{team.id}'>#{team.created_at}</a></h5><small>#{team.location_formatted_address}</small>"
-    end
+    @teams = @q.result(:distinct => true).includes(:players, :home_events, :away_events, :location).page(params[:page]).per(10)
 
     render("teams/index.html.erb")
   end
 
   def show
+    @schedule = Schedule.new
     @player = Player.new
     @team = Team.find(params[:id])
 
@@ -27,10 +23,9 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new
 
-    @team.location = params[:location]
+    @team.location_id = params[:location_id]
     @team.divisionleague = params[:divisionleague]
     @team.schedule = params[:schedule]
-    @team.schedule_id = params[:schedule_id]
 
     save_status = @team.save
 
@@ -57,10 +52,9 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
 
-    @team.location = params[:location]
+    @team.location_id = params[:location_id]
     @team.divisionleague = params[:divisionleague]
     @team.schedule = params[:schedule]
-    @team.schedule_id = params[:schedule_id]
 
     save_status = @team.save
 
