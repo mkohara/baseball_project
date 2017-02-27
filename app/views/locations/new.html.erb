@@ -18,6 +18,33 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for field -->
+      <div class="form-group">
+        <label for="field" class="control-label">
+          Field
+        </label>
+
+        <input type="text" id="field" name="field" placeholder="Field" class="form-control" value="<%= @location.field %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @location.name %>">
+      </div>
+
+      <!-- Label and input for details -->
+      <div class="form-group">
+        <label for="details" class="control-label">
+          Details
+        </label>
+
+        <textarea id="details" name="details" placeholder="Details" class="form-control" rows="3"><%= @location.details %></textarea>
+      </div>
+
       <button class="btn btn-success">
         Create Location
       </button>
