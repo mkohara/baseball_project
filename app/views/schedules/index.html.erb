@@ -9,6 +9,46 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+          <%= f.label :event_date, "Event date" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='event_dategteqPicker'>
+                  <%= f.text_field :event_date_gteq, :class => "form-control", :placeholder => "Event date greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='event_datelteqPicker'>
+                  <%= f.text_field :event_date_lteq, :class => "form-control", :placeholder => "Event date less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#event_dategteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#event_datelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#event_dategteqPicker').on("dp.change", function (e) {
+                  $('#event_datelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#event_datelteqPicker').on("dp.change", function (e) {
+                  $('#event_dategteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -49,6 +89,86 @@
       </script>
 
         <div class="form-group">
+          <%= f.label :created_at, "Team Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='home_teamgteqcreated_atPicker'>
+                  <%= f.text_field :home_team_created_at_gteq, :class => "form-control", :placeholder => "Team Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='home_teamlteqcreated_atPicker'>
+                  <%= f.text_field :home_team_created_at_lteq, :class => "form-control", :placeholder => "Team Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#home_teamgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#home_teamlteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#home_teamgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#home_teamlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#home_teamlteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#home_teamgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "Team Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='away_teamgteqcreated_atPicker'>
+                  <%= f.text_field :away_team_created_at_gteq, :class => "form-control", :placeholder => "Team Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='away_teamlteqcreated_atPicker'>
+                  <%= f.text_field :away_team_created_at_lteq, :class => "form-control", :placeholder => "Team Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#away_teamgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#away_teamlteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#away_teamgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#away_teamlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#away_teamlteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#away_teamgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
           <%= f.label :created_at, "Location Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -88,46 +208,6 @@
           });
       </script>
 
-<div class="form-group">
-          <%= f.label :created_at, "Team Created at" %>
-          <div class="row">
-            <div class='col-md-6 mb-1'>
-              <div class='input-group date' id='teamsgteqcreated_atPicker'>
-                  <%= f.text_field :teams_created_at_gteq, :class => "form-control", :placeholder => "Team Created at greater than or equal to" %>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-            </div>
-
-            <div class='col-md-6'>
-              <div class='input-group date' id='teamslteqcreated_atPicker'>
-                  <%= f.text_field :teams_created_at_lteq, :class => "form-control", :placeholder => "Team Created at less than or equal to" %>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-            </div>
-          </div>
-      </div>
-      <script type="text/javascript">
-          $(function () {
-              $('#teamsgteqcreated_atPicker').datetimepicker({
-                  format: 'YYYY-MM-DD hh:mm:SS'
-              });
-              $('#teamslteqcreated_atPicker').datetimepicker({
-                  useCurrent: false,
-                  format: 'YYYY-MM-DD hh:mm:SS'
-              });
-              $('#teamsgteqcreated_atPicker').on("dp.change", function (e) {
-                  $('#teamslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
-              });
-              $('#teamslteqcreated_atPicker').on("dp.change", function (e) {
-                  $('#teamsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
-              });
-          });
-      </script>
-
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
       <a href="/schedules" class="btn btn-default btn-block mb-1">Clear filters</a>
@@ -143,6 +223,9 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Location</th>
+        <th>Event date</th>
+        <th>Home team</th>
+        <th>Away team</th>
         <th>Actions</th>
       </tr>
 
@@ -152,6 +235,21 @@
           <% if schedule.location.present? %>
             <a href="/locations/<%= schedule.location.id %>">
               <%= schedule.location.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td><%= schedule.event_date %></td>
+        <td>
+          <% if schedule.home_team.present? %>
+            <a href="/teams/<%= schedule.home_team.id %>">
+              <%= schedule.home_team.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if schedule.away_team.present? %>
+            <a href="/teams/<%= schedule.away_team.id %>">
+              <%= schedule.away_team.created_at %>
             </a>
           <% end %>
         </td>

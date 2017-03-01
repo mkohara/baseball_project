@@ -1,12 +1,18 @@
 class LocationsController < ApplicationController
   def index
     @q = Location.ransack(params[:q])
-    @locations = @q.result(:distinct => true).includes(:schedules).page(params[:page]).per(10)
+    @locations = @q.result(:distinct => true).includes(:schedules, :teams).page(params[:page]).per(10)
+    @location_hash = Gmaps4rails.build_markers(@locations.where.not(:field_latitude => nil)) do |location, marker|
+      marker.lat location.field_latitude
+      marker.lng location.field_longitude
+      marker.infowindow "<h5><a href='/locations/#{location.id}'>#{location.created_at}</a></h5><small>#{location.field_formatted_address}</small>"
+    end
 
     render("locations/index.html.erb")
   end
 
   def show
+    @team = Team.new
     @schedule = Schedule.new
     @location = Location.find(params[:id])
 
@@ -22,6 +28,9 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new
 
+    @location.field = params[:field]
+    @location.name = params[:name]
+    @location.details = params[:details]
 
     save_status = @location.save
 
@@ -48,6 +57,9 @@ class LocationsController < ApplicationController
   def update
     @location = Location.find(params[:id])
 
+    @location.field = params[:field]
+    @location.name = params[:name]
+    @location.details = params[:details]
 
     save_status = @location.save
 

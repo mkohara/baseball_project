@@ -45,6 +45,15 @@
         <%= select_tag(:team_id, options_from_collection_for_select(Team.all, :id, :created_at, @player.team_id), :class => "form-control") %>
       </div>
 
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @player.name %>">
+      </div>
+
       <button class="btn btn-success">
         Create Player
       </button>

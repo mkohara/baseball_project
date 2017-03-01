@@ -33,6 +33,7 @@ class AssignedPlayersController < ApplicationController
 
     @assigned_player.user_id = params[:user_id]
     @assigned_player.player_id = params[:player_id]
+    @assigned_player.name = params[:name]
 
     save_status = @assigned_player.save
 
@@ -59,6 +60,7 @@ class AssignedPlayersController < ApplicationController
   def update
     @assigned_player = AssignedPlayer.find(params[:id])
     @assigned_player.player_id = params[:player_id]
+    @assigned_player.name = params[:name]
 
     save_status = @assigned_player.save
 

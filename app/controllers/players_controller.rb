@@ -29,6 +29,7 @@ class PlayersController < ApplicationController
     @player.statistics = params[:statistics]
     @player.scout_id = params[:scout_id]
     @player.team_id = params[:team_id]
+    @player.name = params[:name]
 
     save_status = @player.save
 
@@ -58,6 +59,7 @@ class PlayersController < ApplicationController
     @player.statistics = params[:statistics]
     @player.scout_id = params[:scout_id]
     @player.team_id = params[:team_id]
+    @player.name = params[:name]
 
     save_status = @player.save
 

@@ -27,6 +27,33 @@
         <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :created_at, @schedule.location_id), :class => "form-control") %>
       </div>
 
+      <!-- Label and input for event_date -->
+      <div class="form-group">
+        <label for="event_date" class="control-label">
+          Event date
+        </label>
+
+        <input type="text" id="event_date" name="event_date" placeholder="Event date" class="form-control" value="<%= @schedule.event_date %>">
+      </div>
+
+      <!-- Label and input for home_team_id -->
+      <div class="form-group">
+        <label for="home_team_id" class="control-label">
+          Home team
+        </label>
+
+        <%= select_tag(:home_team_id, options_from_collection_for_select(Team.all, :id, :created_at, @schedule.home_team_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for away_team_id -->
+      <div class="form-group">
+        <label for="away_team_id" class="control-label">
+          Away team
+        </label>
+
+        <%= select_tag(:away_team_id, options_from_collection_for_select(Team.all, :id, :created_at, @schedule.away_team_id), :class => "form-control") %>
+      </div>
+
       <button class="btn btn-success">
         Create Schedule
       </button>
