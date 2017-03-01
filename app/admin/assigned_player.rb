@@ -1,6 +1,6 @@
 ActiveAdmin.register AssignedPlayer do
 
- permit_params :user_id, :player_id
+ permit_params :user_id, :player_id, :name
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

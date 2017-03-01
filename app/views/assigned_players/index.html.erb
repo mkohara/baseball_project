@@ -11,6 +11,7 @@
       <tr>
         <th>User</th>
         <th>Player</th>
+        <th>Name</th>
         <th>Actions</th>
       </tr>
 
@@ -30,6 +31,7 @@
             </a>
           <% end %>
         </td>
+        <td><%= assigned_player.name %></td>
         <td>
           <a href="/assigned_players/<%= assigned_player.id %>" class="btn btn-primary">Show</a>
           

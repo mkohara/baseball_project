@@ -14,6 +14,11 @@
   </div>
 
 <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
   <%= f.label :scout_id, "Scout" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
@@ -137,6 +142,7 @@
         <th>Statistics</th>
         <th>Scout</th>
         <th>Team</th>
+        <th>Name</th>
         <th>Actions</th>
       </tr>
 
@@ -151,6 +157,7 @@
             </a>
           <% end %>
         </td>
+        <td><%= player.name %></td>
         <td>
           <a href="/players/<%= player.id %>" class="btn btn-primary">Show</a>
           <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit</a>

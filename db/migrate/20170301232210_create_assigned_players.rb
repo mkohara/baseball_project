@@ -3,6 +3,7 @@ class CreateAssignedPlayers < ActiveRecord::Migration
     create_table :assigned_players do |t|
       t.integer :user_id
       t.integer :player_id
+      t.string :name
 
       t.timestamps
 

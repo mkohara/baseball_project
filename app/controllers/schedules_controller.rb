@@ -1,13 +1,12 @@
 class SchedulesController < ApplicationController
   def index
     @q = Schedule.ransack(params[:q])
-    @schedules = @q.result(:distinct => true).includes(:location, :teams).page(params[:page]).per(10)
+    @schedules = @q.result(:distinct => true).includes(:home_team, :away_team, :location).page(params[:page]).per(10)
 
     render("schedules/index.html.erb")
   end
 
   def show
-    @team = Team.new
     @schedule = Schedule.find(params[:id])
 
     render("schedules/show.html.erb")
@@ -23,6 +22,9 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new
 
     @schedule.location_id = params[:location_id]
+    @schedule.event_date = params[:event_date]
+    @schedule.home_team_id = params[:home_team_id]
+    @schedule.away_team_id = params[:away_team_id]
 
     save_status = @schedule.save
 
@@ -50,6 +52,9 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
 
     @schedule.location_id = params[:location_id]
+    @schedule.event_date = params[:event_date]
+    @schedule.home_team_id = params[:home_team_id]
+    @schedule.away_team_id = params[:away_team_id]
 
     save_status = @schedule.save
 

@@ -20,6 +20,9 @@
         <% end %>
       </dd>
 
+      <dt>Name</dt>
+      <dd><%= @player.name %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -122,6 +125,15 @@
 
       <!-- Label and input for player_id -->
       <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
 
       <button class="btn btn-block btn-success">
         Create Assigned Player
