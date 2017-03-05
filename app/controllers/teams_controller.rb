@@ -26,6 +26,7 @@ class TeamsController < ApplicationController
     @team.location_id = params[:location_id]
     @team.division_league = params[:division_league]
     @team.schedule = params[:schedule]
+    @team.name = params[:name]
 
     save_status = @team.save
 
@@ -55,6 +56,7 @@ class TeamsController < ApplicationController
     @team.location_id = params[:location_id]
     @team.division_league = params[:division_league]
     @team.schedule = params[:schedule]
+    @team.name = params[:name]
 
     save_status = @team.save
 

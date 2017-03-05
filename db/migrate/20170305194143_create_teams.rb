@@ -4,6 +4,7 @@ class CreateTeams < ActiveRecord::Migration
       t.integer :location_id
       t.text :division_league
       t.string :schedule
+      t.string :name
 
       t.timestamps
 
